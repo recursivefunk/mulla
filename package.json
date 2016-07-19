@@ -1,0 +1,38 @@
+{
+  "name": "mulla",
+  "version": "1.0.0",
+  "description": "Cache promise resolutions in redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/recursivefunk/mulla.git"
+  },
+  "keywords": [
+    "cache",
+    "redis",
+    "promise"
+  ],
+  "author": "Johnny Ray Austin <johnny@johnnyray.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/recursivefunk/mulla/issues"
+  },
+  "engines": {
+    "npm": ">=3.0.0",
+    "node": ">=6"
+  },
+  "homepage": "https://github.com/recursivefunk/mulla#readme",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "cuid": "^1.3.8",
+    "dotenv": "^2.0.0",
+    "redis": "^2.6.2",
+    "stampit": "^2.1.1"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
+  }
+}

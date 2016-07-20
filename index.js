@@ -4,14 +4,14 @@ const P = require('bluebird')
 const cuid = require('cuid')
 const RedisComponent = require('./redis-component')
 
-const Munny = component()
+const Mulla = component()
   .methods({
 
     getKey() {
       return this._key
     },
 
-    withKey(key=`munny:${cuid()}`) {
+    withKey(key=`mulla:${cuid()}`) {
       this._key = key
       return this
     },
@@ -29,9 +29,9 @@ const Munny = component()
       return new P((resolve, reject) => {
         let update = false;
         this.get(this._key)
-          .then((cacheHit) => {
-            if (cacheHit) {
-              return P.resolve(cacheHit);
+            .then((cacheHit) => {
+              if (cacheHit) {
+                return P.resolve(cacheHit);
             } else {
               update = true;
               return this.func();
@@ -52,5 +52,5 @@ const Munny = component()
   }).compose(RedisComponent)
 
 module.exports = (opts) => {
-  return Munny.create(opts)
+  return Mulla.create(opts)
 }

@@ -16,7 +16,7 @@ module.exports = component()
     set(data) {
       const serialized = JSON.stringify(data);
       return new P((resolve, reject) => {
-        this._clinet.set(this._key, serialized, (err) => {
+        this._client.set(this._key, serialized, (err) => {
           if (err) {
             reject(err);
           } else {

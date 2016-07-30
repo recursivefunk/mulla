@@ -11,8 +11,8 @@ const Mulla = component()
       return this._key
     },
 
-    withKey(key=`mulla:${cuid()}`) {
-      this._key = key
+    withKey(key=`${cuid()}`) {
+      this._key = `mulla:${key}`
       return this
     },
 
@@ -25,6 +25,15 @@ const Mulla = component()
       }
     },
 
+    quit(forceEnd=false) {
+      if (this._client) {
+        this._client.quit()
+        if (forceEnd) {
+          this._client.end(true)
+        }
+      }
+    },
+
     run() {
       return new P((resolve, reject) => {
         let update = false;
@@ -34,7 +43,7 @@ const Mulla = component()
                 return P.resolve(cacheHit);
             } else {
               update = true;
-              return this.func();
+              return this._func();
             }
           })
           .then((data) => {

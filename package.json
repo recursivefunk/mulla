@@ -1,6 +1,6 @@
 {
   "name": "mulla",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cache promise resolutions in redis",
   "main": "index.js",
   "scripts": {

@@ -41,10 +41,10 @@ const Mulla = component()
             .then((cacheHit) => {
               if (cacheHit) {
                 return P.resolve(cacheHit);
-            } else {
-              update = true;
-              return this._func();
-            }
+              } else {
+                update = true;
+                return this._func();
+              }
           })
           .then((data) => {
             if (update) {

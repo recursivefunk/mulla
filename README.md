@@ -1,8 +1,9 @@
 # mulla [WIP]
 
-Mulla caches the results for expensive operations in redis.
+Mulla uses redis to cache the results for expensive operations.
 
 ```javascript
+const env = require('good-env')
 const P = require('bluebird')
 const Mulla = require('mulla')
 
@@ -15,7 +16,9 @@ const aFunc = () => {
   })
 }
 
-const aFuncCache = Mulla({ url: process.env.REDIS_URL })
+const url = env.get('REDIS_URL', 'redis://localhost:6379')
+const aFuncCache = Mulla({ url })
+
 aFuncCache.withKey('results:aFunc').wrap(aFunc)
 
 aFuncCache.run()
@@ -31,7 +34,6 @@ aFuncCache.run()
   })
 ```
 
-Mulla is best used for distributed APIs. It is also designed to work best for
-side-effect-free functions. The same inputs should yield the same output every 
+Mulla is designed to work best for side-effect-free functions calls - the same input(s) should yield the same output every 
 time the function is run. Mulla also assumes promise return values
 

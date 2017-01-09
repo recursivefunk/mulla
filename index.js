@@ -36,26 +36,26 @@ const Mulla = component()
 
     run() {
       return new P((resolve, reject) => {
-        let update = false;
+        let update = false
         this.get(this._key)
             .then((cacheHit) => {
               if (cacheHit) {
-                return P.resolve(cacheHit);
+                return P.resolve(cacheHit)
               } else {
-                update = true;
-                return this._func();
+                update = true
+                return this._func()
               }
           })
           .then((data) => {
             if (update) {
               // This is an async process but we're not waiting on it to finish
-              this.set(data);
+              this.set(data)
             }
-            return P.resolve(data);
+            return P.resolve(data)
           })
           .then((result) => resolve(result))
-          .catch((err) => reject(err));
-      });
+          .catch((err) => reject(err))
+      })
     },
 
   }).compose(Redis)

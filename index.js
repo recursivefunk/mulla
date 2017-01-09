@@ -2,7 +2,7 @@
 const component = require('stampit')
 const P = require('bluebird')
 const cuid = require('cuid')
-const RedisComponent = require('./redis-component')
+const Redis = require('./components/redis')
 
 const Mulla = component()
   .methods({
@@ -58,7 +58,7 @@ const Mulla = component()
       });
     },
 
-  }).compose(RedisComponent)
+  }).compose(Redis)
 
 module.exports = (opts) => {
   return Mulla.create(opts)

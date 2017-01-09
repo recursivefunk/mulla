@@ -1,5 +1,4 @@
 
-
 const component = require('stampit')
 const redis = require('redis')
 const P = require('bluebird')

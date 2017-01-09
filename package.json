@@ -4,7 +4,7 @@
   "description": "Cache promise resolutions in redis",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "ava test/test.js"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,7 @@
     "stampit": "^2.1.1"
   },
   "devDependencies": {
-    "co": "^4.6.0",
-    "dotenv": "^2.0.0",
-    "tape": "^4.6.0"
+    "ava": "^0.17.0",
+    "dotenv": "^2.0.0"
   }
 }
